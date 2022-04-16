@@ -6,10 +6,6 @@ using Steamworks;
 
 public class Shooting : MonoBehaviour
 {
-	// ability delay
-    [Header ("Ability Delay")]
-    public static float delay = 210;
-
 	[Header ("Shooting")]
     public static float FireRate = 7;
 	public static bool upgraded;
