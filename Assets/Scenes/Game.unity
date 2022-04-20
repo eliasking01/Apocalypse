@@ -180,9 +180,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 426f9767f33ed334aa13e6003a6a2fec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AbilityCanvas: {fileID: 834362159449693522, guid: 03c64cf1fa9add24b835e681bb5c9329,
-    type: 3}
-  did: 0
 --- !u!114 &125915392
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -34,12 +34,15 @@ public class Shooting : MonoBehaviour
 
     [Header ("Shoot Effects")]
 	public Animator shootAnim;
+	public Animator crosshairAnimator;
 	public GameObject shootEffect;
 
 	Rigidbody2D sniperBulletRb;
 
 	// stats
 	public static int accuracy = 0;
+
+	public static bool hit = false;
 
     void Start()
     {
@@ -55,6 +58,11 @@ public class Shooting : MonoBehaviour
 
     void Update()
 	{
+		if (hit) {
+			hit = false;
+			Hit();
+		}
+
 		if (Bullet.hitsThisGame != 0 && Bullet.shotsFired != 0)
 		{
 			accuracy = Mathf.RoundToInt((Bullet.hitsThisGame / Bullet.shotsFired) * 100);
@@ -195,5 +203,9 @@ public class Shooting : MonoBehaviour
 		ammo = ammo - withdraw;
 		yield return new WaitForSeconds(reloadSpeed);
 		reloading = false;
+	}
+
+	void Hit() {
+		crosshairAnimator.SetTrigger("Hit");
 	}
 }
