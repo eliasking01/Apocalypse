@@ -544,8 +544,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletForce: 200
   mag: 30
-  magText: {fileID: 0}
-  ammoText: {fileID: 0}
+  magText: {fileID: 3790629577143086539}
+  ammoText: {fileID: 2553196678000919173}
   firePoint: {fileID: 4859059619788684042}
   bulletPrefab: {fileID: 2555967475157448627, guid: c401dab03689dc44cac89247955fe2b4,
     type: 3}
@@ -590,7 +590,7 @@ MonoBehaviour:
   firePoint: {fileID: 4859059619788684042}
   rocketPrefab: {fileID: 6559994321559008133, guid: b52a56c788f568a4cb4492959ee5d063,
     type: 3}
-  countText: {fileID: 0}
+  countText: {fileID: 1544815111309262814}
 --- !u!114 &5743503100390382427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +608,7 @@ MonoBehaviour:
   spawnEffect: {fileID: 216913616425315811, guid: b8f8586302b04ea4ab481318a7d52faa,
     type: 3}
   spawnPoint: {fileID: 4859059619788684042}
-  countText: {fileID: 0}
+  countText: {fileID: 7200499503330434266}
 --- !u!114 &5676799704069210244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -627,7 +627,6 @@ MonoBehaviour:
   spawnEffect: {fileID: 216913616425315811, guid: b8f8586302b04ea4ab481318a7d52faa,
     type: 3}
   cooldownTime: 100
-  didOnce: 0
 --- !u!82 &8249115554263666084
 AudioSource:
   m_ObjectHideFlags: 0
@@ -736,7 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b0168e504634748aae7dfa00693701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthProgress: {fileID: 0}
+  healthProgress: {fileID: 793071855950438332}
   ghostSound: {fileID: 2073677084924615788, guid: 4c00a015d2678f141956731cac4fbdb1,
     type: 3}
   deathSound: {fileID: 5891515812402241008, guid: 6879bf7fc200ade49ad9a9bf42264c93,
@@ -1368,7 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68f9ec3db7633ec49926564f7d5bab88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currencyText: {fileID: 0}
+  currencyText: {fileID: 2799047522399040175}
   buySound: {fileID: 1367553186546332448, guid: 561a91b5374477c46bebdbf07c98b982,
     type: 3}
 --- !u!1 &2488825833823830189
@@ -7821,7 +7820,7 @@ PrefabInstance:
     - target: {fileID: 471779350002982624, guid: 56480e3963d402b4aa5d656391396aab,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0.98997754
+      value: 0.106536634
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471779349109527336, guid: 56480e3963d402b4aa5d656391396aab, type: 3}
@@ -8025,7 +8024,7 @@ PrefabInstance:
     - target: {fileID: 471779350002982624, guid: 56480e3963d402b4aa5d656391396aab,
         type: 3}
       propertyPath: m_FillAmount
-      value: 1
+      value: 0.99593514
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471779349109527336, guid: 56480e3963d402b4aa5d656391396aab, type: 3}
@@ -8068,7 +8067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximum: 100
   minimum: 0
-  current: 179.20908
+  current: 99.61275
   mask: {fileID: 6247837093050279762}
   fill: {fileID: 6247837093050279762}
   color: {r: 0.3160377, g: 0.6570962, b: 1, a: 1}
@@ -8249,7 +8248,7 @@ PrefabInstance:
     - target: {fileID: 471779350002982624, guid: 56480e3963d402b4aa5d656391396aab,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0.984137
+      value: 0.6596306
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471779349109527336, guid: 56480e3963d402b4aa5d656391396aab, type: 3}

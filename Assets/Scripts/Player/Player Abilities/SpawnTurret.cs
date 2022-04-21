@@ -14,19 +14,13 @@ public class SpawnTurret : MonoBehaviour
 
 	private float nextSpawnTime = 100;
 
-	public bool didOnce;
+	bool didOnce;
 
 	void Update()
 	{
-		if(didOnce == false)
+		if(!didOnce && !PauseMenu.GameIsPaused && Input.GetKeyDown(Keybinds.turretKey))
 		{			
-			if (!PauseMenu.GameIsPaused)
-			{
-				if (Input.GetKeyDown(Keybinds.turretKey))
-				{
-					Spawn();
-				}
-			}
+			Spawn();
 		}
 	}
 
