@@ -113,6 +113,8 @@ public class Currency : MonoBehaviour
         disableShotgun = true;
         Shotgun.enabled = true;
         currency -= 1500;
+
+        Instantiate(buySound);
     }
 
     public void SniperBuy()
@@ -121,6 +123,8 @@ public class Currency : MonoBehaviour
         disableSniper = true;
         Sniper.enabled = true;
         currency -= 1500;
+
+        Instantiate(buySound);
     }
 
     public void RocketBuy()
@@ -128,6 +132,8 @@ public class Currency : MonoBehaviour
         if (currency < 800) { return; }
         currency -= 800;
         ShootRocket.rocketCount += 1;
+
+        Instantiate(buySound);
     }
 
     public void BoxBuy()
@@ -135,6 +141,8 @@ public class Currency : MonoBehaviour
         if (currency < 800) { return; }
         currency -= 800;
         SpawnBox.boxCount += 1;
+
+        Instantiate(buySound);
     }
 
     void Update()

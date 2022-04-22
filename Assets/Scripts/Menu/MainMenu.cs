@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
             SteamUserStats.GetStat("highScoreMap1", out int hs1);
             SteamUserStats.GetStat("highScoreMap2", out int hs2);
             SteamUserStats.GetStat("highScoreMap3", out int hs3);
+            SteamUserStats.GetStat("highScoreMap4", out int hs4);
 
             if (MapChange.map1Selected)
             {
@@ -36,6 +37,10 @@ public class MainMenu : MonoBehaviour
             else if (MapChange.map3Selected)
             {
                 highScoreText.text = ToTime(hs3);
+            }
+            else if (MapChange.map4Selected)
+            {
+                highScoreText.text = ToTime(hs4);
             }
         }
         
@@ -54,6 +59,10 @@ public class MainMenu : MonoBehaviour
             {
                 highScoreText.text = PlayerPrefs.GetString("HighScoreMap3", "00:00:00");
             }
+            else if (MapChange.map4Selected)
+            {
+                highScoreText.text = PlayerPrefs.GetString("HighScoreMap4", "00:00:00");
+            }
         }
     }
 
@@ -70,6 +79,10 @@ public class MainMenu : MonoBehaviour
         else if (MapChange.map3Selected)
         {
             SceneManager.LoadScene(3);
+        }
+        else if (MapChange.map4Selected)
+        {
+            SceneManager.LoadScene(4);
         }
     }
 

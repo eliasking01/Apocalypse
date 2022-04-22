@@ -60,6 +60,7 @@ public class Timer : MonoBehaviour
             SteamUserStats.GetStat("highScoreMap1", out int hs1);
             SteamUserStats.GetStat("highScoreMap2", out int hs2);
             SteamUserStats.GetStat("highScoreMap3", out int hs3);
+            SteamUserStats.GetStat("highScoreMap4", out int hs4);
 
             if (MapChange.map1Selected && Mathf.FloorToInt(theTime) > hs1)
             {
@@ -73,6 +74,10 @@ public class Timer : MonoBehaviour
             {
                 SteamUserStats.SetStat("highScoreMap3", Mathf.FloorToInt(theTime));
             }
+            else if (MapChange.map4Selected && Mathf.FloorToInt(theTime) > hs4)
+            {
+                SteamUserStats.SetStat("highScoreMap4", Mathf.FloorToInt(theTime));
+            }
 
             // counts the number of games played in each map
             if (theTime > 10 && a)
@@ -82,10 +87,12 @@ public class Timer : MonoBehaviour
                 int games1;
                 int games2;
                 int games3;
+                int games4;
 
                 SteamUserStats.GetStat("gamesPlayedMap1", out games1);
                 SteamUserStats.GetStat("gamesPlayedMap2", out games2);
                 SteamUserStats.GetStat("gamesPlayedMap3", out games3);
+                SteamUserStats.GetStat("gamesPlayedMap4", out games4);
                 
                 if (MapChange.map1Selected)
                 {
@@ -102,13 +109,18 @@ public class Timer : MonoBehaviour
                     games3++;
                     SteamUserStats.SetStat("gamesPlayedMap3", games3);
                 }
+                else if (MapChange.map4Selected)
+                {
+                    games4++;
+                    SteamUserStats.SetStat("gamesPlayedMap4", games4);
+                }
 
-                int[] gamesArr = {games1, games2, games3};
+                int[] gamesArr = {games1, games2, games3, games4};
                 SteamUserStats.SetStat("totalGamesPlayed", Sum(gamesArr));
             }
 
             // updates the all time high score
-            int[] hsArr = {hs1, hs2, hs3};
+            int[] hsArr = {hs1, hs2, hs3, hs4};
             int hsAllTime = Max(hsArr);
             SteamUserStats.SetStat("highScoreAllTime", hsAllTime);
 
@@ -148,6 +160,11 @@ public class Timer : MonoBehaviour
                 PlayerPrefs.SetFloat("HighScoreTimeMap3", theTime);
                 PlayerPrefs.SetString("HighScoreMap3", ToTime(Mathf.FloorToInt(theTime)));
             }
+            else if (MapChange.map4Selected && theTime > PlayerPrefs.GetFloat("HighScoreTimeMap4", 0))
+            {
+                PlayerPrefs.SetFloat("HighScoreTimeMap4", theTime);
+                PlayerPrefs.SetString("HighScoreMap4", ToTime(Mathf.FloorToInt(theTime)));
+            }
 
             // counts the number of games played in each map
             if (theTime > 10 && a)
@@ -158,6 +175,7 @@ public class Timer : MonoBehaviour
                 int games1 = PlayerPrefs.GetInt("gamesPlayedMap1", 0);
                 int games2 = PlayerPrefs.GetInt("gamesPlayedMap2", 0);
                 int games3 = PlayerPrefs.GetInt("gamesPlayedMap3", 0);
+                int games4 = PlayerPrefs.GetInt("gamesPlayedMap4", 0);
                 
                 if (MapChange.map1Selected)
                 {
@@ -174,8 +192,13 @@ public class Timer : MonoBehaviour
                     games3++;
                     PlayerPrefs.SetInt("gamesPlayedMap3", games3);
                 }
+                else if (MapChange.map4Selected)
+                {
+                    games4++;
+                    PlayerPrefs.SetInt("gamesPlayedMap4", games4);
+                }
 
-                int[] gamesArr = {games1, games2, games3};
+                int[] gamesArr = {games1, games2, games3, games4};
                 PlayerPrefs.SetInt("totalGamesPlayed", Sum(gamesArr));
             }
 
@@ -183,8 +206,10 @@ public class Timer : MonoBehaviour
             int hs1 = Mathf.FloorToInt(PlayerPrefs.GetFloat("HighScoreTimeMap1", 0));
             int hs2 = Mathf.FloorToInt(PlayerPrefs.GetFloat("HighScoreTimeMap2", 0));
             int hs3 = Mathf.FloorToInt(PlayerPrefs.GetFloat("HighScoreTimeMap3", 0));
+            int hs4 = Mathf.FloorToInt(PlayerPrefs.GetFloat("HighScoreTimeMap4", 0));
 
-            int[] hsArr = {hs1, hs2, hs3};
+
+            int[] hsArr = {hs1, hs2, hs3, hs4};
             int hsAllTime = Max(hsArr);
             PlayerPrefs.SetInt("allTimeHighScore", hsAllTime);
         }
