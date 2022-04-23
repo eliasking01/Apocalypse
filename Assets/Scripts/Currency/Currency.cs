@@ -64,7 +64,7 @@ public class Currency : MonoBehaviour
     {
         if (currency >= 2000)
         {
-            PlayerHealth.regenRate = 2;
+            PlayerHealth.regenRate *= 2;
             currency -= 2000;
             disableRegen = true;
 

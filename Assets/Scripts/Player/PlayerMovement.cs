@@ -15,9 +15,16 @@ using UnityEngine.Audio;
 
     public static float runSpeed;
 
+    MapJson MapJson;
+    MapJson.Map map = new MapJson.Map();
+
     void Start ()
     {
-        runSpeed = 15;
+        map = MapJson.map;
+
+        transform.position = map.player.spawn;
+
+        runSpeed = 15 * map.player.movementSpeedMultiplier;
         body = GetComponent<Rigidbody2D>();
     }
 

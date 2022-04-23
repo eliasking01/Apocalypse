@@ -11,21 +11,29 @@ public class RandomSpawn : MonoBehaviour
     public GameObject spawnEffect;
 
     [Header ("Timings")]
-    float timeBetweenSpawns;
+    float timeBetweenSpawns = 3.5f;
     float friendlyTimeBetweenSpawns;
     float timeDecreaseRate = 0.003f;
     float timer;
     float friendlyTimer;
 
+    MapJson MapJson;
+    MapJson.Map map = new MapJson.Map();
+
     void Start()
     {
-        timeBetweenSpawns = 3.5f;
+        map = MapJson.map;
+        
+        timeBetweenSpawns = map.enemies.timeBetween;
+        timeDecreaseRate = map.enemies.timeDecreaseRate;
         friendlyTimeBetweenSpawns = 50;
         timer = 0;
     }
 
     void Update()
     {
+        Debug.Log(map.player.maxHealth);
+
         timer += Time.deltaTime;
         friendlyTimer += Time.deltaTime;
 
@@ -35,7 +43,7 @@ public class RandomSpawn : MonoBehaviour
         if (friendlyTimer >= friendlyTimeBetweenSpawns && !PlayerHealth.dead && Time.timeSinceLevelLoad >= 270)
         {
             friendlyTimer = 0;
-            int spawnLocationNum = Random.Range(1, 11);
+            int spawnLocationNum = Random.Range(0, 10);
 
             bool spawnOrNot = Random.Range(1, 3) == 1;
 
@@ -44,55 +52,47 @@ public class RandomSpawn : MonoBehaviour
             // finds the spawn location and spawns the friendly
             if (spawnOrNot)
             {
-                if (spawnLocationNum == 1)
-                {
-                    Instantiate(spawnEnemy, spawn1.position, spawn1.rotation);
-                    Instantiate(spawnEffect, spawn1.position, spawn1.rotation);
-                }
-                else if (spawnLocationNum == 2)
-                {
-                    Instantiate(spawnEnemy, spawn2.position, spawn2.rotation);
-                    Instantiate(spawnEffect, spawn2.position, spawn2.rotation);
-                }
-                else if (spawnLocationNum == 3)
-                {
-                    Instantiate(spawnEnemy, spawn3.position, spawn3.rotation);
-                    Instantiate(spawnEffect, spawn3.position, spawn3.rotation);
-                }
-                else if (spawnLocationNum == 4)
-                {
-                    Instantiate(spawnEnemy, spawn4.position, spawn4.rotation);
-                    Instantiate(spawnEffect, spawn4.position, spawn4.rotation);
-                }
-                else if (spawnLocationNum == 5)
-                {
-                    Instantiate(spawnEnemy, spawn5.position, spawn5.rotation);
-                    Instantiate(spawnEffect, spawn5.position, spawn5.rotation);
-                }
-                else if (spawnLocationNum == 6)
-                {
-                    Instantiate(spawnEnemy, spawn6.position, spawn6.rotation);
-                    Instantiate(spawnEffect, spawn6.position, spawn6.rotation);
-                }
-                else if (spawnLocationNum == 7)
-                {
-                    Instantiate(spawnEnemy, spawn7.position, spawn7.rotation);
-                    Instantiate(spawnEffect, spawn7.position, spawn7.rotation);
-                }
-                else if (spawnLocationNum == 8)
-                {
-                    Instantiate(spawnEnemy, spawn8.position, spawn8.rotation);
-                    Instantiate(spawnEffect, spawn8.position, spawn8.rotation);
-                }
-                else if (spawnLocationNum == 9)
-                {
-                    Instantiate(spawnEnemy, spawn9.position, spawn9.rotation);
-                    Instantiate(spawnEffect, spawn9.position, spawn9.rotation);
-                }
-                else if (spawnLocationNum == 10)
-                {
-                    Instantiate(spawnEnemy, spawn10.position, spawn10.rotation);
-                    Instantiate(spawnEffect, spawn10.position, spawn10.rotation);
+                switch (spawnLocationNum) {
+                    case 0:
+                        Instantiate(spawnEnemy, map.enemies.spawns[0], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[0], Quaternion.identity);
+                        break;
+                    case 1:
+                        Instantiate(spawnEnemy, map.enemies.spawns[1], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[1], Quaternion.identity);
+                        break;
+                    case 2:
+                        Instantiate(spawnEnemy, map.enemies.spawns[2], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[2], Quaternion.identity);
+                        break;
+                    case 3:
+                        Instantiate(spawnEnemy, map.enemies.spawns[3], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[3], Quaternion.identity);
+                        break;
+                    case 4:
+                        Instantiate(spawnEnemy, map.enemies.spawns[4], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[4], Quaternion.identity);
+                        break;
+                    case 5:
+                        Instantiate(spawnEnemy, map.enemies.spawns[5], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[5], Quaternion.identity);
+                        break;
+                    case 6:
+                        Instantiate(spawnEnemy, map.enemies.spawns[6], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[6], Quaternion.identity);
+                        break;
+                    case 7:
+                        Instantiate(spawnEnemy, map.enemies.spawns[7], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[7], Quaternion.identity);
+                        break;
+                    case 8:
+                        Instantiate(spawnEnemy, map.enemies.spawns[8], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[8], Quaternion.identity);
+                        break;
+                    case 9:
+                        Instantiate(spawnEnemy, map.enemies.spawns[9], Quaternion.identity);
+                        Instantiate(spawnEffect, map.enemies.spawns[9], Quaternion.identity);
+                        break;
                 }
             }
         }
@@ -101,7 +101,7 @@ public class RandomSpawn : MonoBehaviour
         if (timer >= timeBetweenSpawns && !PlayerHealth.dead)
         {
             timer = 0;
-            int spawnNum = Random.Range(1, 11);
+            int spawnLocationNum = Random.Range(0, 10);
             int spawnEnemyNum = Random.Range(1, 11);
 
             GameObject spawnEnemy = enemy;
@@ -125,55 +125,47 @@ public class RandomSpawn : MonoBehaviour
             }
 
             // finds the spawn location and spawns the enemy
-            if (spawnNum == 1)
-            {
-                Instantiate(spawnEnemy, spawn1.position, spawn1.rotation);
-                Instantiate(spawnEffect, spawn1.position, spawn1.rotation);
-            }
-            else if (spawnNum == 2)
-            {
-                Instantiate(spawnEnemy, spawn2.position, spawn2.rotation);
-                Instantiate(spawnEffect, spawn2.position, spawn2.rotation);
-            }
-            else if (spawnNum == 3)
-            {
-                Instantiate(spawnEnemy, spawn3.position, spawn3.rotation);
-                Instantiate(spawnEffect, spawn3.position, spawn3.rotation);
-            }
-            else if (spawnNum == 4)
-            {
-                Instantiate(spawnEnemy, spawn4.position, spawn4.rotation);
-                Instantiate(spawnEffect, spawn4.position, spawn4.rotation);
-            }
-            else if (spawnNum == 5)
-            {
-                Instantiate(spawnEnemy, spawn5.position, spawn5.rotation);
-                Instantiate(spawnEffect, spawn5.position, spawn5.rotation);
-            }
-            else if (spawnNum == 6)
-            {
-                Instantiate(spawnEnemy, spawn6.position, spawn6.rotation);
-                Instantiate(spawnEffect, spawn6.position, spawn6.rotation);
-            }
-            else if (spawnNum == 7)
-            {
-                Instantiate(spawnEnemy, spawn7.position, spawn7.rotation);
-                Instantiate(spawnEffect, spawn7.position, spawn7.rotation);
-            }
-            else if (spawnNum == 8)
-            {
-                Instantiate(spawnEnemy, spawn8.position, spawn8.rotation);
-                Instantiate(spawnEffect, spawn8.position, spawn8.rotation);
-            }
-            else if (spawnNum == 9)
-            {
-                Instantiate(spawnEnemy, spawn9.position, spawn9.rotation);
-                Instantiate(spawnEffect, spawn9.position, spawn9.rotation);
-            }
-            else if (spawnNum == 10)
-            {
-                Instantiate(spawnEnemy, spawn10.position, spawn10.rotation);
-                Instantiate(spawnEffect, spawn10.position, spawn10.rotation);
+            switch (spawnLocationNum) {
+                case 0:
+                    Instantiate(spawnEnemy, map.enemies.spawns[0], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[0], Quaternion.identity);
+                    break;
+                case 1:
+                    Instantiate(spawnEnemy, map.enemies.spawns[1], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[1], Quaternion.identity);
+                    break;
+                case 2:
+                    Instantiate(spawnEnemy, map.enemies.spawns[2], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[2], Quaternion.identity);
+                    break;
+                case 3:
+                    Instantiate(spawnEnemy, map.enemies.spawns[3], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[3], Quaternion.identity);
+                    break;
+                case 4:
+                    Instantiate(spawnEnemy, map.enemies.spawns[4], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[4], Quaternion.identity);
+                    break;
+                case 5:
+                    Instantiate(spawnEnemy, map.enemies.spawns[5], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[5], Quaternion.identity);
+                    break;
+                case 6:
+                    Instantiate(spawnEnemy, map.enemies.spawns[6], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[6], Quaternion.identity);
+                    break;
+                case 7:
+                    Instantiate(spawnEnemy, map.enemies.spawns[7], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[7], Quaternion.identity);
+                    break;
+                case 8:
+                    Instantiate(spawnEnemy, map.enemies.spawns[8], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[8], Quaternion.identity);
+                    break;
+                case 9:
+                    Instantiate(spawnEnemy, map.enemies.spawns[9], Quaternion.identity);
+                    Instantiate(spawnEffect, map.enemies.spawns[9], Quaternion.identity);
+                    break;
             }
         }
     }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static float health = 100;
+    public static float health;
 
     public static float regenRate;
 
@@ -17,11 +17,16 @@ public class PlayerHealth : MonoBehaviour
     public static bool dead;
 
     float elapsed = 0f;
+
+    MapJson MapJson;
+    MapJson.Map map = new MapJson.Map();
     
     void Start()
     {
-        regenRate = 1;
-        health = 100;
+        map = MapJson.map;
+
+        regenRate = map.player.regenRate;
+        health = map.player.maxHealth;
         dead = false;
     }
 

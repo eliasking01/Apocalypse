@@ -1,0 +1,22 @@
+{
+    "highScore": 0,
+    
+    "player": {
+        "spawn": { "x": 0, "y": 0 },
+        "maxHealth": 100,
+        "regenRate": 1,
+        "movementSpeedMultiplier": 1,
+        "currencyMultiplier": 1
+    },
+
+    "enemies": {
+        "spawns": [
+            { "x": 5, "y": 172 },
+            { "x": 98, "y": 1463 }
+        ],
+
+        "timeBetween": 3.5,
+        "timeDecreaseRate": 0.003,
+        "healthMultiplier": 1
+    }
+}
