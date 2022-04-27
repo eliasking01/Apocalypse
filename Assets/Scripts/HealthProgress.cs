@@ -3,14 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-[ExecuteInEditMode()]
 public class HealthProgress : MonoBehaviour
 {
-    public float maximum;
-
-    public float minimum;
-
-    public float current;
+    float maximum;
 
     public Image mask;
 
@@ -18,18 +13,20 @@ public class HealthProgress : MonoBehaviour
 
     public Color color;
 
-    void GetCurrentFill()
-    {
-        float currentOffset = current - minimum;
-        float maximumOffset = maximum - minimum;
-        float fillAmount = currentOffset / maximumOffset;
-        mask.fillAmount = fillAmount;
+    MapJson mapJson;
 
-        fill.color = color;
+    void Start() {
+        mapJson = GameObject.Find("GameObject").GetComponent<MapJson>();
+        var map = mapJson.map;
+
+        maximum = map.player.maxHealth;
     }
 
     void Update()
     {
-        GetCurrentFill();
+        float fillAmount = PlayerHealth.health / maximum;
+        mask.fillAmount = fillAmount;
+
+        fill.color = color;
     }
 }

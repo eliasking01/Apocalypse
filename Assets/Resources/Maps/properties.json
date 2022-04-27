@@ -1,0 +1,30 @@
+{
+    "highScore": 0,
+    
+    "player": {
+        "spawn": { "x": -30.1, "y": 22.6 },
+        "maxHealth": 100,
+        "regenRate": 1,
+        "movementSpeedMultiplier": 1,
+        "currencyMultiplier": 1
+    },
+
+    "enemies": {
+        "spawns": [
+            { "x": -7.1, "y": 17.6 },
+            { "x": -8.9, "y": 7.1 },
+            { "x": -22.2, "y": 8.9 },
+            { "x": -30.5, "y": 2.1 },
+            { "x": -9.1, "y": -4.1 },
+            { "x": -6.2, "y": -9.9 },
+            { "x": 10.8, "y": -5.2 },
+            { "x": 25, "y": 23.9 },
+            { "x": 30.9, "y": 0.7 },
+            { "x": 19.7, "y": -13.2 }
+        ],
+
+        "timeBetween": 3.5,
+        "timeDecreaseRate": 0.003,
+        "healthMultiplier": 1
+    }
+}

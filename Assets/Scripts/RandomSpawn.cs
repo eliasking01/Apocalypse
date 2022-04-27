@@ -11,18 +11,18 @@ public class RandomSpawn : MonoBehaviour
     public GameObject spawnEffect;
 
     [Header ("Timings")]
-    float timeBetweenSpawns = 3.5f;
+    public static float timeBetweenSpawns = 3.5f;
     float friendlyTimeBetweenSpawns;
     float timeDecreaseRate = 0.003f;
     float timer;
     float friendlyTimer;
 
-    MapJson MapJson;
-    MapJson.Map map = new MapJson.Map();
+    MapJson mapJson;
 
     void Start()
     {
-        map = MapJson.map;
+        mapJson = GameObject.Find("GameObject").GetComponent<MapJson>();
+        var map = mapJson.map;
         
         timeBetweenSpawns = map.enemies.timeBetween;
         timeDecreaseRate = map.enemies.timeDecreaseRate;
@@ -32,7 +32,7 @@ public class RandomSpawn : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(map.player.maxHealth);
+        var map = mapJson.map;
 
         timer += Time.deltaTime;
         friendlyTimer += Time.deltaTime;

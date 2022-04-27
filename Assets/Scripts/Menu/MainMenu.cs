@@ -9,81 +9,25 @@ public class MainMenu : MonoBehaviour
 {
     public Text highScoreText;
 
-    string ToTime(int time)
+    string ToTime(float time)
     {
-        string hours = Mathf.Floor((time % 216000) / 3600).ToString("00");
-        string minutes = Mathf.Floor((time % 3600) / 60).ToString("00");
-        string seconds = Mathf.Floor(time % 60).ToString("00");
+        string hours = Mathf.FloorToInt((time % 216000) / 3600).ToString("00");
+        string minutes = Mathf.FloorToInt((time % 3600) / 60).ToString("00");
+        string seconds = Mathf.FloorToInt(time % 60).ToString("00");
         return hours + ":" + minutes + ":" + seconds;
     }
 
     void Update()
     {
-        if (PlayerStats.steamStats && SteamManager.Initialized)
-        {
-            SteamUserStats.GetStat("highScoreMap1", out int hs1);
-            SteamUserStats.GetStat("highScoreMap2", out int hs2);
-            SteamUserStats.GetStat("highScoreMap3", out int hs3);
-            SteamUserStats.GetStat("highScoreMap4", out int hs4);
-
-            if (MapChange.map1Selected)
-            {
-                highScoreText.text = ToTime(hs1);
-            }
-            else if (MapChange.map2Selected)
-            {
-                highScoreText.text = ToTime(hs2);
-            }
-            else if (MapChange.map3Selected)
-            {
-                highScoreText.text = ToTime(hs3);
-            }
-            else if (MapChange.map4Selected)
-            {
-                highScoreText.text = ToTime(hs4);
-            }
-        }
-        
-        // offline
-        else
-        {
-            if (MapChange.map1Selected)
-            {
-                highScoreText.text = PlayerPrefs.GetString("HighScoreMap1", "00:00:00");
-            }
-            else if (MapChange.map2Selected)
-            {
-                highScoreText.text = PlayerPrefs.GetString("HighScoreMap2", "00:00:00");
-            }
-            else if (MapChange.map3Selected)
-            {
-                highScoreText.text = PlayerPrefs.GetString("HighScoreMap3", "00:00:00");
-            }
-            else if (MapChange.map4Selected)
-            {
-                highScoreText.text = PlayerPrefs.GetString("HighScoreMap4", "00:00:00");
-            }
-        }
+        MapJson mapJson = GetComponent<MapJson>();
+        var map = mapJson.map;
+        highScoreText.text = ToTime(map.highScore);
+        print(map.highScore);
     }
 
     public void PlayGame()
     {
-        if (MapChange.map1Selected)
-        {
-            SceneManager.LoadScene(1);
-        }
-        else if (MapChange.map2Selected)
-        {
-            SceneManager.LoadScene(2);
-        }
-        else if (MapChange.map3Selected)
-        {
-            SceneManager.LoadScene(3);
-        }
-        else if (MapChange.map4Selected)
-        {
-            SceneManager.LoadScene(4);
-        }
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()

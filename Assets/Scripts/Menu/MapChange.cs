@@ -20,6 +20,8 @@ public class MapChange : MonoBehaviour
     public Animator animator;
     bool mapsBar = false;
 
+    public static string selectedMap = "Map 1";
+
     public void Maps()
     {
         if (!mapsBar)
@@ -34,78 +36,8 @@ public class MapChange : MonoBehaviour
         }
     }
 
-    public void Start()
-    {
-        if (map1Selected) {map.sprite = map1;}
-        if (map2Selected) {map.sprite = map2;}
-        if (map3Selected) {map.sprite = map3;}
-        if (map4Selected) {map.sprite = map4;}
-    }
-
-    public void Map_1()
-    {
-        select("map1");
-        map.sprite = map1;
-    }
-
-    public void Map_2()
-    {
-        select("map2");
-        map.sprite = map2;
-    }
-
-    public void Map_3()
-    {
-        select("map3");
-        map.sprite = map3;
-    }
-
-    public void Map_4()
-    {
-        select("map4");
-        map.sprite = map4;
-    }
-
-    void select(string map)
-    {
-        // map 1
-        if (map == "map1")
-        {
-            map1Selected = true;
-        }
-        else
-        {
-            map1Selected = false;
-        }
-
-        // map 2
-        if (map == "map2")
-        {
-            map2Selected = true;
-        }
-        else
-        {
-            map2Selected = false;
-        }
-
-        // map 3
-        if (map == "map3")
-        {
-            map3Selected = true;
-        }
-        else
-        {
-            map3Selected = false;
-        }
-
-        // map 3
-        if (map == "map4")
-        {
-            map4Selected = true;
-        }
-        else
-        {
-            map4Selected = false;
-        }
+    void Update() {
+        var mapSprite = Resources.Load<Sprite>("Maps/" + selectedMap + "/map");
+        map.sprite = mapSprite;
     }
 }

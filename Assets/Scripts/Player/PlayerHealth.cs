@@ -8,8 +8,6 @@ public class PlayerHealth : MonoBehaviour
 
     public static float regenRate;
 
-    public HealthProgress healthProgress;
-
     public GameObject ghostSound;
 
     public GameObject deathSound;
@@ -18,12 +16,12 @@ public class PlayerHealth : MonoBehaviour
 
     float elapsed = 0f;
 
-    MapJson MapJson;
-    MapJson.Map map = new MapJson.Map();
+    MapJson mapJson;
     
     void Start()
     {
-        map = MapJson.map;
+        mapJson = GameObject.Find("GameObject").GetComponent<MapJson>();
+        var map = mapJson.map;
 
         regenRate = map.player.regenRate;
         health = map.player.maxHealth;
@@ -60,8 +58,6 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= 1;
         }
-
-        healthProgress.current = health;
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -85,8 +81,6 @@ public class PlayerHealth : MonoBehaviour
         {
             health -= 2;
         }
-
-        healthProgress.current = health;
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -102,8 +96,6 @@ public class PlayerHealth : MonoBehaviour
             health -= 35;
             Instantiate(ghostSound, transform.position, Quaternion.identity);
         }
-
-        healthProgress.current = health;
     }
 
     void OutputTime()
@@ -111,8 +103,6 @@ public class PlayerHealth : MonoBehaviour
         if (health < 100)
         {
             health += regenRate;
-
-            healthProgress.current = health;
         }
     }
 }

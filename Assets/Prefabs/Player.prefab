@@ -735,7 +735,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b0168e504634748aae7dfa00693701, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthProgress: {fileID: 793071855950438332}
   ghostSound: {fileID: 2073677084924615788, guid: 4c00a015d2678f141956731cac4fbdb1,
     type: 3}
   deathSound: {fileID: 5891515812402241008, guid: 6879bf7fc200ade49ad9a9bf42264c93,
@@ -1416,7 +1415,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.48235297, g: 0.25490198, b: 0.14509805, a: 1}
+  m_BackGroundColor: {r: 0.13333334, g: 0.23137257, b: 0.32941177, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -7659,9 +7658,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0a9f97ddb66dc74f823dd3b46b085d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maximum: 100
-  minimum: 0
-  current: 100
   mask: {fileID: 872153638952642664}
   fill: {fileID: 872153638952642664}
   color: {r: 0.8396226, g: 0.33171824, b: 0.2891153, a: 1}
@@ -7820,7 +7816,7 @@ PrefabInstance:
     - target: {fileID: 471779350002982624, guid: 56480e3963d402b4aa5d656391396aab,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0.106536634
+      value: 0.010213522
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471779349109527336, guid: 56480e3963d402b4aa5d656391396aab, type: 3}
@@ -8024,7 +8020,7 @@ PrefabInstance:
     - target: {fileID: 471779350002982624, guid: 56480e3963d402b4aa5d656391396aab,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0.99593514
+      value: 0.00919217
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471779349109527336, guid: 56480e3963d402b4aa5d656391396aab, type: 3}
@@ -8067,7 +8063,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximum: 100
   minimum: 0
-  current: 99.61275
+  current: 1.019217
   mask: {fileID: 6247837093050279762}
   fill: {fileID: 6247837093050279762}
   color: {r: 0.3160377, g: 0.6570962, b: 1, a: 1}
@@ -8248,7 +8244,7 @@ PrefabInstance:
     - target: {fileID: 471779350002982624, guid: 56480e3963d402b4aa5d656391396aab,
         type: 3}
       propertyPath: m_FillAmount
-      value: 0.6596306
+      value: 0.015320283
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 471779349109527336, guid: 56480e3963d402b4aa5d656391396aab, type: 3}
