@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using Steamworks;
 
 public class Timer : MonoBehaviour
 {
@@ -26,7 +24,7 @@ public class Timer : MonoBehaviour
         if (theTime > map.highScore) {
             map.highScore = theTime;
             string mapData = JsonUtility.ToJson(map);
-            string path = Application.dataPath + "/Resources/Maps/" + MapChange.selectedMap + "/properties.json";
+            string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Documents/Apocalypse Maps" + MapChange.selectedMap + "/properties.json";
             System.IO.File.WriteAllText(path, mapData);
         }
     }
