@@ -24,7 +24,7 @@ public class Timer : MonoBehaviour
         if (theTime > map.highScore) {
             map.highScore = theTime;
             string mapData = JsonUtility.ToJson(map);
-            string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Documents/Apocalypse Maps" + MapChange.selectedMap + "/properties.json";
+            string path = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments) + "/Documents/Apocalypse Maps/" + MapChange.selectedMap + "/properties.json";
             System.IO.File.WriteAllText(path, mapData);
         }
     }
