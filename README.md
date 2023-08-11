@@ -1,7 +1,8 @@
 # Apocalypse
 This is a 2D top down shooter game I made using Unity. I started working on it in April, 2019.
 
-## Download
+## Installation
+
 1. Clone this repository:
 ````
 git clone https://github.com/eliasking01/Apocalypse.git
